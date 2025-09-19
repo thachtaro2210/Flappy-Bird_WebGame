@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { Bird, Pipe, Item, Achievement } from "../types";
 import { useAssets } from "../hooks/useAssets";
 import { mapConfigs, GRAVITY, PIPE_SPEED, PIPE_WIDTH, PIPE_GAP, BIRD_WIDTH, BIRD_HEIGHT, ITEM_WIDTH, ITEM_HEIGHT, BOOST_SPEED_MULTIPLIER, MAGNET_RANGE } from "../constants";
-
+import { GameStats } from "../types";
 interface GameCanvasProps {
-  canvasRef: React.RefObject<HTMLCanvasElement>;
+  canvasRef: React.RefObject<HTMLCanvasElement> | null;
   bird: Bird;
   pipes: Pipe[];
   score: number;
   gameOver: boolean;
+   gameStats: GameStats;
   gameStarted: boolean;
   isPaused: boolean;
   currentMap: number;
@@ -29,6 +30,7 @@ const GameCanvas: React.FC<GameCanvasProps> = ({
   gameStarted,
   isPaused,
   currentMap,
+  gameStats,
   shieldActive,
   boostActive,
   items,
@@ -41,7 +43,7 @@ const GameCanvas: React.FC<GameCanvasProps> = ({
   useEffect(() => {
     if (!assetsLoaded || isPaused) return;
 
-    const canvas = canvasRef.current;
+    const canvas = canvasRef?.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
 

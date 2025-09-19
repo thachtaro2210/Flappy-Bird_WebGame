@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Achievement } from "../types";
+import { Achievement } from "../types/index";
 import { achievementDefinitions, ACHIEVEMENT_DISPLAY_TIME } from "../constants";
 
 export const useAchievements = () => {
