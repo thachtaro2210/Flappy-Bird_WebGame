@@ -1,16 +1,16 @@
-// src/FlappyBird.tsx
 "use client";
 
 import React from "react";
-// import { useGameLogic } from "./hooks/useGameLogic";
-// import { useAssets } from "./hooks/useAssets";
-// import GameCanvas from "./components/GameCanvas";
-// import PointsBoard from "./components/PointsBoard";
-// import MapSelector from "./components/MapSelector";
-// import UpgradesModal from "./components/UpgradesModal";
-// import ChallengesModal from "./components/ChallengesModal";
-// import LeaderboardModal from "./components/LeaderboardModal";
-// import NameInputModal from "./components/NameInputModal";
+import { useGameLogic } from "./hooks/useGameLogic";
+import { useAssets } from "./hooks/useAssets";
+import GameCanvas from "./components/GameCanvas";
+import PointsBoard from "./components/PointsBoard";
+import MapSelector from "./components/MapSelector";
+import UpgradesModal from "./components/UpgradesModal";
+import ChallengesModal from "./components/ChallengesModal";
+import LeaderboardModal from "./components/LeaderboardModal";
+import NameInputModal from "./components/NameInputModal";
+import { mapConfigs } from "./constants";
 
 export default function FlappyBird() {
   const {
@@ -53,7 +53,9 @@ export default function FlappyBird() {
     shareScore,
     handlePause,
     handleCanvasClick,
-    mapConfigs,
+    redeemVoucher,
+    unlockMap,
+    dailyChallenges,
   } = useGameLogic();
 
   const { canvasRef, assetsLoaded } = useAssets();
@@ -99,6 +101,9 @@ export default function FlappyBird() {
             className="w-16 h-16 text-xs rounded-full bg-red-500 hover:bg-red-600 active:bg-red-700 text-white font-bold transition-all transform hover:scale-110 active:scale-95 shadow-xl backdrop-blur-sm border-2 border-white/30 relative"
           >
             Thách
+            {dailyChallenges.some((c) => !c.completed) && (
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+            )}
           </button>
           <button
             onClick={() => setShowPointsBoard(true)}
@@ -191,6 +196,15 @@ export default function FlappyBird() {
           </div>
         </div>
       )}
+      <div
+        className={`fixed bottom-0 left-0 right-0 bg-black bg-opacity-60 backdrop-blur-sm text-white text-center py-4 px-4 z-20 ${
+          showPointsBoard || showMapSelector ? "opacity-50" : ""
+        } transition-all duration-300`}
+      >
+        <p className="text-xl font-semibold drop-shadow-lg">
+          Nhấn SPACE hoặc click để nhảy • P để tạm dừng • {mapConfigs[currentMap].name} • Điểm: {score}
+        </p>
+      </div>
     </div>
   );
 }
