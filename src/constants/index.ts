@@ -1,4 +1,3 @@
-// src/constants/index.ts
 export const GRAVITY = 0.5;
 export const JUMP_STRENGTH = 5;
 export const PIPE_WIDTH = 52;
@@ -55,5 +54,67 @@ export const achievementDefinitions = [
     progress: 0,
     target: 1,
   },
-  // ... (các achievement khác)
+  {
+    id: "score_5",
+    name: "Người Mới",
+    description: "Đạt 5 điểm",
+    reward: 100,
+    unlocked: false,
+    progress: 0,
+    target: 5,
+  },
+  {
+    id: "score_10",
+    name: "Cao Thủ",
+    description: "Đạt 10 điểm",
+    reward: 200,
+    unlocked: false,
+    progress: 0,
+    target: 10,
+  },
+  {
+    id: "score_25",
+    name: "Chuyên Gia",
+    description: "Đạt 25 điểm",
+    reward: 500,
+    unlocked: false,
+    progress: 0,
+    target: 25,
+  },
+  {
+    id: "collector",
+    name: "Nhà Sưu Tập",
+    description: "Nhặt 10 vật phẩm",
+    reward: 150,
+    unlocked: false,
+    progress: 0,
+    target: 10,
+  },
+  {
+    id: "survivor",
+    name: "Kẻ Sống Sót",
+    description: "Sống sót 60 giây",
+    reward: 300,
+    unlocked: false,
+    progress: 0,
+    target: 60,
+  },
+  {
+    id: "combo_master",
+    name: "Combo Master",
+    description: "Đạt combo x5",
+    reward: 400,
+    unlocked: false,
+    progress: 0,
+    target: 5,
+  },
+  {
+    id: "all_maps",
+    name: "Du Hành",
+    description: "Mở khóa tất cả map",
+    reward: 1000,
+    unlocked: false,
+    progress: 0,
+    target: 4,
+  },
 ];
