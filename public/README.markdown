@@ -1,5 +1,5 @@
 # Flappy Bird 2025
-![Game](image.png)
+
 A modernized and feature-rich version of the classic Flappy Bird game, built with **React**, **TypeScript**, and **TailwindCSS**. This project enhances the original game with dynamic maps, upgrades, achievements, daily challenges, and a leaderboard system, providing an engaging experience for players.
 
 ## Table of Contents
@@ -226,4 +226,4 @@ This project is licensed under the [MIT License](LICENSE). You are free to use, 
 
 ---
 
-Built with ❤️ by [Thach Taro]. Enjoy flapping!
+Built with ❤️ by [Your Name]. Enjoy flapping!
