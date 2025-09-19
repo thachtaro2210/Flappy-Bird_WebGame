@@ -5,9 +5,9 @@ interface UpgradesModalProps {
   showUpgrades: boolean;
   setShowUpgrades: (value: boolean) => void;
   gameStats: GameStats;
-  setGameStats: (stats: GameStats) => void;
+  setGameStats: React.Dispatch<React.SetStateAction<GameStats>>;
   upgrades: PowerUpgrade;
-  setUpgrades: (upgrades: PowerUpgrade) => void;
+  setUpgrades: React.Dispatch<React.SetStateAction<PowerUpgrade>>;
 }
 
 const UpgradesModal: React.FC<UpgradesModalProps> = ({
